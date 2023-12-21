@@ -1,0 +1,51 @@
+/* img{
+    width: 500px;
+    height: 550px;
+} */
+h1, h2{
+    font-family: 'Poppins', sans-serif;
+    margin: 5px;
+}
+
+body{
+    border: 2px;
+}
+header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+#home{
+    margin: 50px;
+}
+
+#slider img{
+    border-radius: 15px;
+    width: 950px;
+    height: 600px;
+    margin: auto;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    
+}
+
+#slider{
+    display:flex;
+    
+}
+
+#products{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    padding: 20px;
+    grid-gap: 40px;
+    align-items: center;
+   
+}

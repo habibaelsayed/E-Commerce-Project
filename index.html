@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: rgb(70, 68, 68);">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                  <img src="https://www.iconpacks.net/icons/2/free-store-icon-2017-thumb.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                  Shopee
+              </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact Us</a>
+                </li>
+              </ul>
+              <form class="d-flex" role="search" style="margin-left: 55%;">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit" style="margin-left: 5px;">Search</button>
+              </form>
+              <img src="https://cdn-icons-png.flaticon.com/512/7835/7835563.png" alt="" width="30" height="24" style="margin: 5px;" class="d-inline-block align-text-top">
+              <p style="color: #007bff; margin: 5px;" id="itemCount">0</p>
+            </div>
+          </div>
+        </nav>
+
+    </header>
+      <div id="home">
+        <h1>Welcome to SHOPEE Shop!</h1>
+        <div id="slider">
+        </div>
+      <hr>
+      <h2>Our Products</h2>
+      <ul class="nav nav-tabs">
+        <li class="nav-item" >
+          <a class="nav-link active" id="allProducts" aria-current="page" href="#" onclick="showProducts()">Some Products</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" id="phones" onclick="showPhones()" href="#">Smart Phones</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" id="laptops" onclick="showLaptops()" href="#">Laptops</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" id="fragrances" href="#" onclick="showFragrances()">Fragrances</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" id="furniture" href="#" onclick="showFurniture()">Furniture</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" id="watches" href="#" onclick="showWatches()">Men Watches</a>
+        </li>
+      </ul>
+      <div id="products">
+          
+        </div>
+
+      </div>
+      <footer>
+        <div class="card text-center">
+          <div class="card-header" style="background-color: #343a40; color: aliceblue;">
+            <img src="https://www.iconpacks.net/icons/2/free-store-icon-2017-thumb.png" alt="" width="30" height="24" class="d-inline-block align-text-top"> 
+            SHOPEE
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Follow us</h5>
+            <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+            <p>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/768px-Instagram-Icon.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+
+              
+            </p>
+            <a href="#home" class="btn btn-dark">Go To Top</a>
+          </div>
+          <div class="card-footer text-body-secondary" style="background-color: #343a40; color: aliceblue;">
+            All Right Reserved
+          </div>
+        </div>
+      </footer>
+
+      <script src="demo.js"></script>
+</body>
+</html>
