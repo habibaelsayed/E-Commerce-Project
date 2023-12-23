@@ -38,36 +38,36 @@
                 <button class="btn btn-outline-success" type="submit" style="margin-left: 5px;">Search</button>
               </form>
               <img src="https://cdn-icons-png.flaticon.com/512/7835/7835563.png" alt="" width="30" height="24" style="margin: 5px;" class="d-inline-block align-text-top">
-              <p style="color: #007bff; margin: 5px;" id="itemCount">0</p>
+              <p style="color: #007bff; margin: 5px; background-color: aliceblue; padding: 3px; border-radius: 2px;" id="itemCount">0</p>
             </div>
           </div>
         </nav>
 
     </header>
-      <div id="home">
+      <div>
         <h1>Welcome to SHOPEE Shop!</h1>
         <div id="slider">
         </div>
       <hr>
-      <h2>Our Products</h2>
+      <h2 id="top">Our Products</h2>
       <ul class="nav nav-tabs">
         <li class="nav-item" >
-          <a class="nav-link active" id="allProducts" aria-current="page" href="#" onclick="showProducts()">Some Products</a>
+          <button class="nav-link active" id="allProducts" aria-current="page" href="#" onclick="showProducts()">Some Products</button>
         </li>
         <li class="nav-item" >
-          <a class="nav-link" id="phones" onclick="showPhones()" href="#">Smart Phones</a>
+          <button class="nav-link" id="phones" onclick="showPhones()" href="#">Smart Phones</button>
         </li>
         <li class="nav-item" >
-          <a class="nav-link" id="laptops" onclick="showLaptops()" href="#">Laptops</a>
+          <button class="nav-link" id="laptops" onclick="showLaptops()" href="#">Laptops</button>
         </li>
         <li class="nav-item" >
-          <a class="nav-link" id="fragrances" href="#" onclick="showFragrances()">Fragrances</a>
+          <button class="nav-link" id="fragrances" href="#" onclick="showFragrances()">Fragrances</button>
         </li>
         <li class="nav-item" >
-          <a class="nav-link" id="furniture" href="#" onclick="showFurniture()">Furniture</a>
+          <button class="nav-link" id="furniture" href="#" onclick="showFurniture()">Furniture</button>
         </li>
         <li class="nav-item" >
-          <a class="nav-link" id="watches" href="#" onclick="showWatches()">Men Watches</a>
+          <button class="nav-link" id="watches" href="#" onclick="showWatches()">Men Watches</button>
         </li>
       </ul>
       <div id="products">
@@ -91,7 +91,7 @@
 
               
             </p>
-            <a href="#home" class="btn btn-dark">Go To Top</a>
+            <a href="#top" class="btn btn-dark">Go To Top</a>
           </div>
           <div class="card-footer text-body-secondary" style="background-color: #343a40; color: aliceblue;">
             All Right Reserved
