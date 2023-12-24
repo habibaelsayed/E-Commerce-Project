@@ -7,6 +7,7 @@ var laptops = document.getElementById("laptops");
 var fragrances = document.getElementById("fragrances");
 var watches = document.getElementById('watches');
 var furniture = document.getElementById('furniture');
+var jewellery = document.getElementById('jewellery');
 var itemCount = document.getElementById('itemCount');
 var itemNum = 0;
 var mappedProducts = new Map();
@@ -21,7 +22,7 @@ function hasClass(element, className) {
 function changeSlide(){
     if(pos < imgs.length)
     {
-        slider.innerHTML = `<img src="./imgs/${imgs[pos++]}">`;
+        slider.innerHTML = `<img src="/imgs/${imgs[pos++]}">`;
     }else pos = 0;
 }
 setInterval(changeSlide, 1500);
@@ -79,6 +80,7 @@ function showProducts(){
     fragrances.classList.remove('active');
     watches.classList.remove('active');
     furniture.classList.remove('active');
+    jewellery.classList.remove('active');
 
 }
 
@@ -94,6 +96,7 @@ function showPhones(){
     fragrances.classList.remove('active');
     watches.classList.remove('active');
     furniture.classList.remove('active');
+    jewellery.classList.remove('active');
     
 
 }
@@ -109,6 +112,7 @@ function showLaptops(){
     fragrances.classList.remove('active');
     watches.classList.remove('active');
     furniture.classList.remove('active');
+    jewellery.classList.remove('active');
 
 }
 
@@ -123,6 +127,7 @@ function showFragrances(){
     laptops.classList.remove('active');
     watches.classList.remove('active');
     furniture.classList.remove('active');
+    jewellery.classList.remove('active');
 
 }
 
@@ -137,7 +142,7 @@ function showFurniture(){
     laptops.classList.remove('active');
     watches.classList.remove('active');
     fragrances.classList.remove('active');
-
+    jewellery.classList.remove('active');
 
 }
 
@@ -152,6 +157,21 @@ function showWatches(){
     laptops.classList.remove('active');
     furniture.classList.remove('active');
     fragrances.classList.remove('active');
+    jewellery.classList.remove('active');
+}
+
+function showJewellery(){
+
+    showProduct('https://dummyjson.com/products/category/womens-jewellery')
+    if(!hasClass(jewellery, 'active'))
+        jewellery.classList.add('active');
+
+    allProductsTab.classList.remove('active');
+    phones.classList.remove('active');
+    laptops.classList.remove('active');
+    furniture.classList.remove('active');
+    fragrances.classList.remove('active');
+    watches.classList.remove('active');
 }
 
 
