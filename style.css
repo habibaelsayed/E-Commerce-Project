@@ -9,6 +9,7 @@ h1, h2, h3, h4, h5{
 
 body{
     border: 2px;
+    position: absolute;
     /* font-family: 'Poppins', sans-serif; */
     /* margin-left: 10px;
     margin-right: 10px; */
@@ -16,12 +17,13 @@ body{
 
 }
 header{
-    position: static;
+    position:fixed;
     top: 0;
     width: 100%;
     margin-bottom: 10px;
 
 }
+
 /* .sticky {
     position: fixed;
     top: 0;
@@ -110,3 +112,21 @@ header{
     padding: 50px;
 
 }
+
+#cartItems, #orderForm {
+    border: 1px solid rgb(184, 183, 183);
+    align-items: center;
+    margin: auto;
+    border-radius: 10px;
+    align-content: center;
+    width: 750px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.card:hover{
+    border: 2px solid rgb(94, 124, 165);
+}
+
+
+

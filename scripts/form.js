@@ -1,5 +1,19 @@
+var itemsnum = document.cookie.split(';');
+itemsnum = itemsnum[itemsnum.length-1].split('=');
+itemsnum = itemsnum[0].split(':');
+itemsnum = itemsnum[1];
+
+if(!isNaN(itemsnum))
+{document.getElementById("itemCount").innerHTML = itemsnum;}
+
+// document.getElementById("itemCount").innerHTML = itemsnum;
 var submit = document.getElementById("submit");
 
+function showCart() {
+
+    window.open('cart.html', "_self");
+
+}
 
 function emptyName(){
     var Name = document.getElementById("inName").value;
@@ -10,8 +24,6 @@ function emptyName(){
         return false;
         // spanName.setAttribute("spancol", "2");
     } else  spanName.style.display = "none"; return true;
-
-    console.log(spanName)
 }
 
 
@@ -25,8 +37,9 @@ function invalidMail(){
         // spanName.setAttribute("spancol", "2");
     } else spanEmail.style.display = "none"; return true;
 
-    console.log(spanEmail)
 }
+
+
 
 // function invalidPass(){
 //     var Password = document.getElementById("inPass").value;
@@ -142,7 +155,24 @@ function validateForm(e){
 }
 
 
-
+function getCookie(cookieName) {
+    // Split the cookie string into individual cookies
+    var cookies = document.cookie.split(';');
+  
+    // Iterate through the cookies to find the one with the specified name
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i].trim();
+  
+      // Check if this is the cookie you are looking for
+      if (cookie.indexOf(cookieName + '=') === 0) {
+        // Extract and return the cookie value
+        return cookie.substring(cookieName.length + 1);
+      }
+    }
+  
+    // Return null if the cookie is not found
+    return null;
+  }
 
 
 submit.addEventListener("click", validateForm);

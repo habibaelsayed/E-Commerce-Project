@@ -1,3 +1,4 @@
+// document.getElementById("itemCount").innerHTML = getCookie('itemsnum');
 var imgs = ['1.jpg', '2.jpg','3.jpg','4.jpg','5.jpg', '6.jpg']
 var slider = document.getElementById('slider');
 var pos = 0;
@@ -13,6 +14,14 @@ var itemNum = 0;
 var mappedProducts = new Map();
 var productsAdded = [];
 var fullData = [];
+
+var itemsnum = document.cookie.split(';');
+itemsnum = itemsnum[itemsnum.length-1].split('=');
+itemsnum = itemsnum[0].split(':');
+itemsnum = itemsnum[1];
+if(!isNaN(itemsnum))
+{document.getElementById("itemCount").innerHTML = itemsnum;
+itemNum = itemsnum;}
 
 function hasClass(element, className) {
     return (' ' + element.className + ' ').indexOf(' ' + className+ ' ') > -1;
@@ -186,18 +195,82 @@ function addItem(e){
     console.log(item);
     var itemKey = JSON.stringify(item);
 
-    if(mappedProducts[itemKey]) mappedProducts[itemKey]++;
+    if(mappedProducts.has(itemKey))
+    {
+        var num = mappedProducts.get(itemKey);
+        mappedProducts.set(itemKey, ++num);
+        document.cookie = `${itemKey} = ${num}`
+    } 
     else
     {
-        mappedProducts[itemKey] = 1;
+        mappedProducts.set(itemKey, 1);
         productsAdded.push(item);
+        document.cookie = `${itemKey} = 1`
     }
 
+
     itemNum++;
-    itemCount.innerHTML = itemNum;
+    document.getElementById("itemCount").innerHTML = itemNum;
+    document.cookie = `itemsnum: ${itemNum}`;
 
 }
 
+function showCart() {
+
+    var cartWindow = window.open('cart.html', "_self");
+
+}
+
+// function setCookies(){
+
+//     for (var [key, value] of mappedProducts) {
+//         document.cookie = `${key}= ${value}`;
+//     }
+
+// }
+
+
+{/* <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="..." class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div> */}
+
+// function takeCartData(e){
+//     var el = e.target();
+//     var Window = el.getAttribute('href');
+//     Window = window.open(Window);
+//     Window.productsAdded = productsAdded;
+//     Window.mappedProducts = mappedProducts;
+//     Window.itemCount =  itemCount;
+// }
+function getCookie(cookieName) {
+    // Split the cookie string into individual cookies
+    var cookies = document.cookie.split(';');
+  
+    // Iterate through the cookies to find the one with the specified name
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i].trim();
+  
+      // Check if this is the cookie you are looking for
+      if (cookie.indexOf(cookieName + '=') === 0) {
+        // Extract and return the cookie value
+        return cookie.substring(cookieName.length + 1);
+      }
+    }
+  
+    // Return null if the cookie is not found
+    return null;
+  }
 
 
 showProducts();

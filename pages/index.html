@@ -14,7 +14,7 @@
   <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: rgb(70, 68, 68);">
           <div class="container-fluid">
-              <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="/pages/index.html">
                   <img src="https://www.iconpacks.net/icons/2/free-store-icon-2017-thumb.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
                   SHOPEE
               </a>
@@ -30,15 +30,17 @@
                   <a class="nav-link active" aria-current="page" href="/pages/about.html">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/pages/contactus.html">Contact Us</a>
+                  <a class="nav-link" href="/pages/contactus.html" >Contact Us</a>
                 </li>
               </ul>
               <form class="d-flex" role="search" style="margin-left: 55%;">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit" style="margin-left: 5px;">Search</button>
               </form>
-              <img src="https://cdn-icons-png.flaticon.com/512/7835/7835563.png" alt="" width="30" height="24" style="margin: 5px;" class="d-inline-block align-text-top">
-              <p style="color: #007bff; margin: 5px; background-color: aliceblue; padding: 3px; border-radius: 2px;" id="itemCount">0</p>
+              <div style="display: inline-flex; cursor: pointer;" onclick="showCart()">
+                <img src="https://cdn-icons-png.flaticon.com/512/7835/7835563.png" alt="" width="30" height="24" style="margin: 5px;" class="d-inline-block align-text-top">
+                <p style="color: #007bff; margin: 5px; background-color: aliceblue; padding: 3px; border-radius: 2px;" id="itemCount">0</p>
+              </div>
             </div>
           </div>
         </nav>
@@ -46,7 +48,10 @@
     </header>
       <div>
         <h1>Welcome to SHOPEE Shop!</h1>
-        <div id="slider">
+        <div id="slider" class="carousel slide" data-bs-ride="carousel">
+          <!-- <button onclick="next()"></button>
+          
+          <button onclick="prev()"></button> -->
         </div>
       <hr>
       <h2 id="top">Our Products</h2>
