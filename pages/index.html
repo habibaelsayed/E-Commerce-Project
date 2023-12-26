@@ -34,8 +34,8 @@
                 </li>
               </ul>
               <form class="d-flex" role="search" style="margin-left: 55%;">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit" style="margin-left: 5px;">Search</button>
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" oninput="searchProduct(event)" id="search">
+                <button class="btn btn-outline-success" type="submit" style="margin-left: 5px;" onclick="searchProduct(event)">Search</button>
               </form>
               <div style="display: inline-flex; cursor: pointer;" onclick="showCart()">
                 <img src="https://cdn-icons-png.flaticon.com/512/7835/7835563.png" alt="" width="30" height="24" style="margin: 5px;" class="d-inline-block align-text-top">

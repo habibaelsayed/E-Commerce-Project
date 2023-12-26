@@ -186,3 +186,20 @@ function cancelForm(){
 function confirmOrder(){
   document.getElementById("orderForm").style.display = "block";
 }
+
+
+function searchProduct(e){
+  e.preventDefault();
+  window.open('index.html', "_self");
+  var productVal = document.getElementById("search").value;
+  showProduct(`https://dummyjson.com/products/search?q=${productVal}`);
+
+  
+  allProductsTab.classList.remove('active');
+  phones.classList.remove('active');
+  laptops.classList.remove('active');
+  fragrances.classList.remove('active');
+  watches.classList.remove('active');
+  furniture.classList.remove('active');
+  jewellery.classList.remove('active');
+}
