@@ -1,5 +1,29 @@
 var cartProducts = [];
 
+if(!isNaN(getCookie('itemsnum')))
+{document.getElementById("itemCount").innerHTML = getCookie('itemsnum');}
+function getCookie(cookieName) {
+  var cookies = document.cookie.split(';');
+
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    if (cookie.indexOf(cookieName + '=') === 0) {
+      return cookie.substring(cookieName.length + 1);
+    }
+  }
+
+  return null;
+}
+
+function isValidJSON(str) {
+  try {
+    JSON.parse(str);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function extractProducts(){
     var products = document.cookie.split(";");
     for(var i=0;i<products.length;i++)
@@ -9,15 +33,15 @@ function extractProducts(){
         console.log(products[i]);
     }
 
-    for(var i=0;i<products.length-1;i++)
+    for(var i=0;i<products.length;i++)
     {
         var productInfo = products[i][0];
+
         console.log(productInfo);
-
-        // Remove backslashes from the string
+        
         var unescapedString = productInfo.replace(/\\/g, '');
+        if(!isValidJSON(productInfo)) continue;
 
-        // Parse the unescaped string into a JavaScript object
         var jsObject = JSON.parse(unescapedString);
         jsObject.quantity = Number(products[i][1]);
         console.log(jsObject);
@@ -26,9 +50,6 @@ function extractProducts(){
 
     }
 
-    var itemCount = products[products.length-1][0].split(':');
-    console.log(itemCount[1]);
-    document.getElementById("itemCount").innerHTML = itemCount[1];
 
 
 }
@@ -72,6 +93,7 @@ extractProducts();
 displayCart();
 
 updatePrice();
+
 function add(event){
   var card = event.target;
   card = card.parentElement.parentElement.parentElement.parentElement;
@@ -80,6 +102,8 @@ function add(event){
   cartProducts[cardid].quantity += 1;
   console.log(cartProducts[cardid]);
   card.childNodes[1].childNodes[3].childNodes[1].querySelector('p').innerHTML = `Quantity: ${cartProducts[cardid].quantity}`;
+  document.cookie = `itemsnum = ${Number(document.getElementById("itemCount").innerText) + 1}`;
+  document.getElementById("itemCount").innerText = Number(document.getElementById("itemCount").innerText) + 1;
   updatePrice();
 }
 
@@ -97,6 +121,8 @@ function remove(event){
     cartProducts[cardid].quantity -= 1;
     document.getElementById(`${cardid}`).remove();
   }
+  document.cookie = `itemsnum = ${Number(document.getElementById("itemCount").innerText) - 1}`;
+  document.getElementById("itemCount").innerText = Number(document.getElementById("itemCount").innerText) - 1;
   console.log(cartProducts[cardid]);
   updatePrice();
 }
@@ -174,6 +200,8 @@ function validateForm(e){
 
   if(emptyName() && invalidMail() && emptyAddress() && emptyCard()){
     document.getElementById('successOrder').style.display = "block";
+    document.cookie = `itemsnum = 0`;
+    document.getElementById("itemCount").innerHTML = 0;
   }
 
 }

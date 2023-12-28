@@ -1,9 +1,19 @@
-var itemsnum = document.cookie.split(';');
-itemsnum = itemsnum[itemsnum.length-1].split('=');
-itemsnum = itemsnum[0].split(':');
-itemsnum = itemsnum[1];
-if(!isNaN(itemsnum))
-{document.getElementById("itemCount").innerHTML = itemsnum;}
+
+if(!isNaN(getCookie('itemsnum')))
+{document.getElementById("itemCount").innerHTML = getCookie('itemsnum');}
+else {document.getElementById("itemCount").innerHTML = 0;}
+function getCookie(cookieName) {
+  var cookies = document.cookie.split(';');
+
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    if (cookie.indexOf(cookieName + '=') === 0) {
+      return cookie.substring(cookieName.length + 1);
+    }
+  }
+
+  return null;
+}
 
 function showCart() {
 

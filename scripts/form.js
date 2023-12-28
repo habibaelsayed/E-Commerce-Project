@@ -1,12 +1,20 @@
-var itemsnum = document.cookie.split(';');
-itemsnum = itemsnum[itemsnum.length-1].split('=');
-itemsnum = itemsnum[0].split(':');
-itemsnum = itemsnum[1];
 
-if(!isNaN(itemsnum))
-{document.getElementById("itemCount").innerHTML = itemsnum;}
+if(!isNaN(getCookie('itemsnum')))
+{document.getElementById("itemCount").innerHTML = getCookie('itemsnum');}
+else {document.getElementById("itemCount").innerHTML = 0;}
+function getCookie(cookieName) {
+  var cookies = document.cookie.split(';');
 
-// document.getElementById("itemCount").innerHTML = itemsnum;
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    if (cookie.indexOf(cookieName + '=') === 0) {
+      return cookie.substring(cookieName.length + 1);
+    }
+  }
+
+  return null;
+}
+
 var submit = document.getElementById("submit");
 
 function showCart() {
@@ -22,7 +30,6 @@ function emptyName(){
         spanName.innerHTML = "Name is required or not valid";
         spanName.style.display = "block";
         return false;
-        // spanName.setAttribute("spancol", "2");
     } else  spanName.style.display = "none"; return true;
 }
 
@@ -34,24 +41,12 @@ function invalidMail(){
         spanEmail.innerHTML = "Email is not valid";
         spanEmail.style.display = "block";
         return false;
-        // spanName.setAttribute("spancol", "2");
     } else spanEmail.style.display = "none"; return true;
 
 }
 
 
 
-// function invalidPass(){
-//     var Password = document.getElementById("inPass").value;
-//     var spanPass = document.getElementById("password");
-//     if(Password.length < 8){
-//         spanPass.innerHTML = "Password should be 8 character or more";
-//         spanPass.style.display = "block";
-//         // spanName.setAttribute("spancol", "2");
-//     } else spanPass.style.display = "none";
-
-//     console.log(spanPass)
-// }
 
 
 function checkGender(){
@@ -75,25 +70,7 @@ function checkGender(){
     else spanGen.style.display = "none"; return true;
 }
 
-// function checkSports(){
-//     // e.preventDefault();
-//     var sports = document.getElementsByName("sport");
-//     var flag = 0;
-//     for(var i=0 ;i<sports.length;i++)
-//     {
-//         if(sports[i].checked){
-//             flag++;
-//         }
-//     }
-//     var spanSport = document.getElementById("sport");
-//     if(flag < 2){
-//         spanSport.innerHTML = "Please select at least two sports";
-//         spanSport.style.display = "block";
-//         return false;
-//         // spanName.setAttribute("spancol", "2");
-//     }
-//     else spanSport.style.display = "none"; return true;
-// }
+
 
 function selectCountry(){
     var select = document.getElementById('select').value;
@@ -156,24 +133,6 @@ function validateForm(e){
 }
 
 
-function getCookie(cookieName) {
-    // Split the cookie string into individual cookies
-    var cookies = document.cookie.split(';');
-  
-    // Iterate through the cookies to find the one with the specified name
-    for (var i = 0; i < cookies.length; i++) {
-      var cookie = cookies[i].trim();
-  
-      // Check if this is the cookie you are looking for
-      if (cookie.indexOf(cookieName + '=') === 0) {
-        // Extract and return the cookie value
-        return cookie.substring(cookieName.length + 1);
-      }
-    }
-  
-    // Return null if the cookie is not found
-    return null;
-  }
 
 
 submit.addEventListener("click", validateForm);
