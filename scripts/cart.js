@@ -175,7 +175,7 @@ function emptyAddress(){
       city.style.display = "block";
       return false;
       // spanName.setAttribute("spancol", "2");
-  } else  address.style.display = "none"; return true;
+  } else  {address.style.display = "none"; city.style.display = "none"; return true;}
 }
 
 function emptyCard(){
@@ -187,7 +187,7 @@ function emptyCard(){
       card.style.display = "block";
       return false;
       // spanName.setAttribute("spancol", "2");
-  } else  address.style.display = "none"; return true;
+  } else  card.style.display = "none"; return true;
 }
 
 function validateForm(e){
